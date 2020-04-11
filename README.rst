@@ -1,7 +1,7 @@
 Tornado Asterisk
 ================
 
-Tornado Asterisk ARI/AMI/AGI Client
+Tornado Asterisk ARI/AMI/AGI Interface
 
 Asterisk REST Interface (ARI)
 -----------------------------

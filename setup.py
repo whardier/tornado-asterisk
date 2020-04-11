@@ -65,7 +65,7 @@ setup(
         'Source': 'https://github.com/whardier/tornado-asterisk',
     },
     description=(
-        "Tornado Asterisk AMI/ARI/AGI Client"
+        "Tornado Asterisk AMI/ARI/AGI Interface"
     ),
     install_requires=[
         "tornado>=6.0.4",

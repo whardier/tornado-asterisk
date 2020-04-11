@@ -1,0 +1,8 @@
+name: tornado-asterisk-docs
+dependencies:
+  - python=3.8
+  - pip:
+    - sphinx
+    - sphinx-rtd-theme
+    - sphinxcontrib-asyncio
+    - Twisted
