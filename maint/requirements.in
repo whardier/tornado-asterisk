@@ -1,0 +1,4 @@
+Sphinx>3.0.1
+coverage
+sphinx-rtd-theme
+virtualenv
