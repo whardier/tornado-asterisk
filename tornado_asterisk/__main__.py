@@ -1,6 +1,6 @@
-# ╺┳╸┏━┓┏━┓┏┓╻┏━┓╺┳┓┏━┓   ┏━┓┏━┓╺┳╸┏━╸┏━┓╻┏━┓╻┏        ╻┏┓╻╻╺┳╸
-#  ┃ ┃ ┃┣┳┛┃┗┫┣━┫ ┃┃┃ ┃   ┣━┫┗━┓ ┃ ┣╸ ┣┳┛┃┗━┓┣┻┓       ┃┃┗┫┃ ┃
-#  ╹ ┗━┛╹┗╸╹ ╹╹ ╹╺┻┛┗━┛╺━╸╹ ╹┗━┛ ╹ ┗━╸╹┗╸╹┗━┛╹ ╹╹╺━╸╺━╸╹╹ ╹╹ ╹ ╺━╸╺━╸
+# ╺┳╸┏━┓┏━┓┏┓╻┏━┓╺┳┓┏━┓   ┏━┓┏━┓╺┳╸┏━╸┏━┓╻┏━┓╻┏        ┏┳┓┏━┓╻┏┓╻
+#  ┃ ┃ ┃┣┳┛┃┗┫┣━┫ ┃┃┃ ┃   ┣━┫┗━┓ ┃ ┣╸ ┣┳┛┃┗━┓┣┻┓       ┃┃┃┣━┫┃┃┗┫
+#  ╹ ┗━┛╹┗╸╹ ╹╹ ╹╺┻┛┗━┛╺━╸╹ ╹┗━┛ ╹ ┗━╸╹┗╸╹┗━┛╹ ╹╹╺━╸╺━╸╹ ╹╹ ╹╹╹ ╹╺━╸╺━╸
 
 # The MIT License (MIT)
 
@@ -29,15 +29,11 @@
 # Author: Shane R. Spencer <spencersr@gmail.com>
 
 
-"""Tornado Asterisk AMI/ARI/AGI Interface"""
+""""""
 
-# version is a human-readable version number.
+import sys
+import os
+import pprint
 
-# version_info is a four-tuple for programmatic comparison. The first
-# three numbers are the components of the version number.  The fourth
-# is zero for an official release, positive for a development branch,
-# or negative for a release candidate or beta (after the base version
-# number has been incremented)
-
-version = "2020.4.0a1"
-version_info = (2020, 4, 0, -200)
+#pprint.pprint(dict(os.environ), indent=4)
+#pprint.pprint(sys.argv, indent=4)
