@@ -38,6 +38,8 @@ except ImportError:
     setuptools = None
     from distutils.core import setup
 
+# kw
+
 kwargs = {}
 
 # "Safe" version read
@@ -61,15 +63,11 @@ setup(
     url="https://github.com/whardier/tornado-asterisk",
     license="MIT",
     project_urls={
-        'Funding': 'https://github.com/sponsors/whardier',
-        'Source': 'https://github.com/whardier/tornado-asterisk',
+        "Funding": "https://github.com/sponsors/whardier",
+        "Source": "https://github.com/whardier/tornado-asterisk",
     },
-    description=(
-        "Tornado Asterisk AMI/ARI/AGI Interface"
-    ),
-    install_requires=[
-        "tornado>=6.0.4",
-    ],
+    description=("Tornado Asterisk AMI/ARI/AGI Interface"),
+    install_requires=["tornado>=6.0.4",],
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Development Status :: 1 - Planning",

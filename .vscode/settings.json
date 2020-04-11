@@ -1,4 +1,6 @@
 {
     "python.pythonPath": ".venv/bin/python3",
-    "restructuredtext.confPath": ""
+    "restructuredtext.confPath": "",
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black"
 }
