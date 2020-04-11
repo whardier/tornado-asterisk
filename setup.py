@@ -28,7 +28,7 @@
 
 # SPDX-License-Identifier: MIT
 
-# Author: Shane R. Spencer <ss668q@att.com>
+# Author: Shane R. Spencer <spencersr@gmail.com>
 
 try:
     # Use setuptools if available, for install_requires (among other things).
@@ -68,7 +68,7 @@ setup(
         "Tornado Asterisk AMI/ARI/AGI Client"
     ),
     install_requires=[
-        "tornado>=6.0",
+        "tornado>=6.0.4",
     ],
     classifiers=[
         "License :: OSI Approved :: MIT License",
