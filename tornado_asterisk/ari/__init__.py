@@ -28,7 +28,7 @@
 
 # Author: Shane R. Spencer <spencersr@gmail.com>
 
-""" Tornado Asterisk ARI (Asterisk Rest Interface)
-"""
+""" Tornado Asterisk ARI (Asterisk Rest Interface) Client """
 
-# from .client import ARIClient
+from .client import ARIClient
+from .client import AsyncARIClient

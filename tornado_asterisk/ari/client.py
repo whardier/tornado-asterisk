@@ -29,17 +29,28 @@
 # Author: Shane R. Spencer <spencersr@gmail.com>
 
 
-""" Tornado Asterisk ARI (Asterisk Rest Interface) Client
-"""
+""" Tornado Asterisk ARI (Asterisk Rest Interface) Client """
 
 
-import ssl
+from ssl import SSLContext
 
-import tornado.websocket
-import tornado.httputil
-import tornado.web
+from tornado.httputil import HTTPHeaders
+
+from tornado.httpclient import HTTPClient
+from tornado.httpclient import AsyncHTTPClient
+
+from tornado.websocket import websocket_connect
 
 from typing import Type, Any, Union, Dict, Callable, Optional, cast, Awaitable
+
+
+# ┏━┓┏━┓╻┏━╸╻  ╻┏━╸┏┓╻╺┳╸
+# ┣━┫┣┳┛┃┃  ┃  ┃┣╸ ┃┗┫ ┃
+# ╹ ╹╹┗╸╹┗━╸┗━╸╹┗━╸╹ ╹ ╹
+
+
+class ARIClient(object):
+    pass
 
 
 # ┏━┓┏━┓╻ ╻┏┓╻┏━╸┏━┓┏━┓╻┏━╸╻  ╻┏━╸┏┓╻╺┳╸
@@ -48,35 +59,36 @@ from typing import Type, Any, Union, Dict, Callable, Optional, cast, Awaitable
 
 
 class AsyncARIClient(object):
-    """ ARI client 
-    """
+    """ ARI client """
 
     def __init__(
-            self,
-            url: str,
-            auth_username: str,
-            auth_password: str,
-            headers: Union[Dict[str, str],
-                           tornado.httputil.HTTPHeaders] = None,
-            url_rest: str = None,
-            url_websocket: str = None,
-            network_interface: str = None,
-            proxy_host: str = None,
-            proxy_port: int = None,
-            proxy_username: str = None,
-            proxy_password: str = None,
-            proxy_auth_mode: str = None,
-            validate_cert: bool = True,
-            ca_certs: str = None,
-            client_key: str = None,
-            client_cert: str = None,
-            ssl_options: ssl.SSLContext = None,
-            allow_ipv6: bool = True
+        self,
+        url: str,
+        auth_username: str,
+        auth_password: str,
+        headers: Union[Dict[str, str], HTTPHeaders] = None,
+        url_rest: str = None,
+        url_websocket: str = None,
+        network_interface: str = None,
+        proxy_host: str = None,
+        proxy_port: int = None,
+        proxy_username: str = None,
+        proxy_password: str = None,
+        proxy_auth_mode: str = None,
+        validate_cert: bool = True,
+        ca_certs: str = None,
+        client_key: str = None,
+        client_cert: str = None,
+        ssl_options: SSLContext = None,
+        allow_ipv6: bool = True,
     ) -> None:
-        pass
+        self.websocket_client = None
+        self.http_client = None
 
-    def connect(self):
-        pass
+        self.url_websocket = "wss://echo.websocket.org"
+
+    async def connect(self):
+        self.websocket_client = await websocket_connect(self.url_websocket)
 
 
 # ┏━┓┏━┓╻┏━┓┏━╸┏━┓╻ ╻┏━╸┏━┓╺┳╸
@@ -87,7 +99,5 @@ class AsyncARIClient(object):
 class ARIRequest(object):
     """ ARI HTTP client request object."""
 
-    def __init__(
-        self,
-    ):
+    def __init__(self,):
         pass
