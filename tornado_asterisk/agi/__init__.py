@@ -1,1 +1,1 @@
-from .client import AGIClient
+from .server import AGIServer
