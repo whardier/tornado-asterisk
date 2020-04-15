@@ -2,5 +2,5 @@
     "python.pythonPath": ".venv/bin/python3",
     "restructuredtext.confPath": "",
     "python.linting.enabled": true,
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "autopep8"
 }

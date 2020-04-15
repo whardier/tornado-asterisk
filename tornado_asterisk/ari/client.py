@@ -34,12 +34,14 @@
 
 from ssl import SSLContext
 
+from tornado.ioloop import IOLoop
 from tornado.httputil import HTTPHeaders
-
+from tornado.httpclient import HTTPRequest
 from tornado.httpclient import HTTPClient
 from tornado.httpclient import AsyncHTTPClient
-
 from tornado.websocket import websocket_connect
+
+from tornado.log import gen_log
 
 from typing import Type, Any, Union, Dict, Callable, Optional, cast, Awaitable
 
@@ -67,8 +69,8 @@ class AsyncARIClient(object):
         auth_username: str,
         auth_password: str,
         headers: Union[Dict[str, str], HTTPHeaders] = None,
-        url_rest: str = None,
-        url_websocket: str = None,
+        rest_url: str = None,
+        websocket_url: str = None,
         network_interface: str = None,
         proxy_host: str = None,
         proxy_port: int = None,
@@ -81,15 +83,36 @@ class AsyncARIClient(object):
         client_cert: str = None,
         ssl_options: SSLContext = None,
         allow_ipv6: bool = True,
+        io_loop: IOLoop = None
     ) -> None:
+
+        if io_loop == None:
+            io_loop = IOLoop.current()
+
+        self.io_loop = io_loop
+
         self.websocket_client = None
         self.http_client = None
 
-        self.url_websocket = "wss://echo.websocket.org"
+        self.websocket_url = "wss://echo.websocket.org"
 
     async def connect(self):
-        self.websocket_client = await websocket_connect(self.url_websocket)
 
+        request = HTTPRequest(
+            self.websocket_url, headers={
+                # 'Authorization': 'Bearer ' ...
+            }
+        )
+
+        self.websocket_client = await websocket_connect(request)
+
+        self.io_loop.spawn_callback(self.websocket_read_loop)
+
+    async def websocket_read_loop(self):
+
+        while True:
+            msg = await self.websocket_client.read_message()
+            gen_log(repr(msg))
 
 # ┏━┓┏━┓╻┏━┓┏━╸┏━┓╻ ╻┏━╸┏━┓╺┳╸
 # ┣━┫┣┳┛┃┣┳┛┣╸ ┃┓┃┃ ┃┣╸ ┗━┓ ┃
